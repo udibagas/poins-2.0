@@ -1,0 +1,75 @@
+@font-face {
+  font-family: "Nirmala UI";
+  src: url(/fonts/Nirmala_0.ttf)
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Nirmala UI", sans-serif;
+}
+
+.el-submenu__title:hover,
+.el-menu-item.is-active,
+.el-menu-item:hover {
+  font-weight: bold;
+  color: #fff !important;
+  background-color: #00b9d0;
+}
+
+.el-table {
+  border-top: 1px solid #EBEEF5;
+}
+
+.el-table td,
+.el-table th {
+  padding: 8px 0;
+}
+
+.text-primary {
+  color: #00b9d0;
+}
+
+.text-secondary {
+  color: #dae1e7;
+}
+
+.text-success {
+  color: #51d88a;
+}
+
+.text-info {
+  color: #bcdefa;
+}
+
+.text-warning {
+  color: #fff382;
+}
+
+.text-danger {
+  color: #ef5753;
+}
+
+.text-right {
+  text-align: right
+}
+
+.text-center {
+  text-align: center
+}
+
+.flex {
+  display: flex;
+}
+
+.flex-grow {
+  flex-grow: 1;
+}
+
+.flex-shrink {
+  flex-shrink: 1;
+}
+
+.vh-100 {
+  height: 100vh;
+}
