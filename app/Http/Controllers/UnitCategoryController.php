@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\UnitCategoryRequest;
+use App\Http\Resources\UnitCategoryCollection;
 use App\Models\UnitCategory;
 use Illuminate\Http\Request;
 
@@ -12,19 +14,16 @@ class UnitCategoryController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        //
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
+        return new UnitCategoryCollection(
+            UnitCategory::when($request->keyword, function ($q) use ($request) {
+                $q->where('name', 'LIKE', "%{$request->keyword}%")
+                    ->orWhere('description', 'LIKE', "%{$request->keyword}%");
+            })
+                ->orderBy($request->sort ?: 'name', $request->order == 'descending' ? 'desc' : 'asc')
+                ->paginate($request->per_page)
+        );
     }
 
     /**
@@ -35,29 +34,8 @@ class UnitCategoryController extends Controller
      */
     public function store(Request $request)
     {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\UnitCategory  $unitCategory
-     * @return \Illuminate\Http\Response
-     */
-    public function show(UnitCategory $unitCategory)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\UnitCategory  $unitCategory
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(UnitCategory $unitCategory)
-    {
-        //
+        $unitCategory = UnitCategory::create($request->all());
+        return ['message' => 'Data has been saved', 'data' => $unitCategory];
     }
 
     /**
@@ -67,9 +45,10 @@ class UnitCategoryController extends Controller
      * @param  \App\Models\UnitCategory  $unitCategory
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, UnitCategory $unitCategory)
+    public function update(UnitCategoryRequest $request, UnitCategory $unitCategory)
     {
-        //
+        $unitCategory->update($request->all());
+        return ['message' => 'Data has been updated', 'data' => $unitCategory];
     }
 
     /**
@@ -80,6 +59,7 @@ class UnitCategoryController extends Controller
      */
     public function destroy(UnitCategory $unitCategory)
     {
-        //
+        $unitCategory->delete();
+        return ['message' => 'Data has been deleted'];
     }
 }

@@ -22,22 +22,22 @@ class SidebarMenuController extends Controller
                     [
                         'label' => 'Lead Time B/D Unit',
                         'icon' => 'el-icon-arrow-right',
-                        'path' => 'lead-time-bd-unit',
+                        'path' => '/plant/lead-time-bd-unit',
                     ],
                     [
                         'label' => 'Lead Time Daily Check',
                         'icon' => 'el-icon-arrow-right',
-                        'path' => 'lead-time-daily-check',
+                        'path' => '/plant/lead-time-daily-check',
                     ],
                     [
                         'label' => 'Breakdown PCR',
                         'icon' => 'el-icon-arrow-right',
-                        'path' => 'breakdown-pcr',
+                        'path' => '/plant/breakdown-pcr',
                     ],
                     [
                         'label' => 'Daily Check',
                         'icon' => 'el-icon-arrow-right',
-                        'path' => 'daily-check',
+                        'path' => '/plant/daily-check',
                     ],
                     [
                         'label' => 'Master Data',
@@ -47,47 +47,47 @@ class SidebarMenuController extends Controller
                             [
                                 'label' => 'Breakdown Statuses',
                                 'icon' => 'el-icon-arrow-right',
-                                'path' => 'breakdown-status'
+                                'path' => '/plant/master-data/breakdown-status'
                             ],
                             [
                                 'label' => 'Breakdown Categories',
                                 'icon' => 'el-icon-arrow-right',
-                                'path' => 'breakdown-category'
+                                'path' => '/plant/master-data/breakdown-category'
                             ],
                             [
                                 'label' => 'Component Criterias',
                                 'icon' => 'el-icon-arrow-right',
-                                'path' => 'component-criteria'
+                                'path' => '/plant/master-data/component-criteria'
                             ],
                             [
                                 'label' => 'Daily Check Setting',
                                 'icon' => 'el-icon-arrow-right',
-                                'path' => 'daily-check-setting'
+                                'path' => '/plant/master-data/daily-check-setting'
                             ],
                             [
                                 'label' => 'EGI',
                                 'icon' => 'el-icon-arrow-right',
-                                'path' => 'egi'
+                                'path' => '/plant/master-data/egi'
                             ],
                             [
                                 'label' => 'Locations',
                                 'icon' => 'el-icon-arrow-right',
-                                'path' => 'location'
+                                'path' => '/plant/master-data/location'
                             ],
                             [
                                 'label' => 'Unit Owners',
                                 'icon' => 'el-icon-arrow-right',
-                                'path' => 'owner'
+                                'path' => '/plant/master-data/owner'
                             ],
                             [
                                 'label' => 'Unit',
                                 'icon' => 'el-icon-arrow-right',
-                                'path' => 'unit'
+                                'path' => '/plant/master-data/unit'
                             ],
                             [
                                 'label' => 'Unit Categories',
                                 'icon' => 'el-icon-arrow-right',
-                                'path' => 'unit-category'
+                                'path' => '/plant/master-data/unit-category'
                             ],
                         ]
                     ]
@@ -101,42 +101,42 @@ class SidebarMenuController extends Controller
                     [
                         'label' => 'Dashboard',
                         'icon' => 'el-icon-arrow-right',
-                        'path' => 'sm/dashboard',
+                        'path' => '/sm/dashboard',
                     ],
                     [
                         'label' => 'Flow Meter',
                         'icon' => 'el-icon-arrow-right',
-                        'path' => 'sm/flow-meter',
+                        'path' => '/sm/flow-meter',
                     ],
                     [
                         'label' => 'Fuel Refill',
                         'icon' => 'el-icon-arrow-right',
-                        'path' => 'sm/fuel-refill',
+                        'path' => '/sm/fuel-refill',
                     ],
                     [
                         'label' => 'Warning Parts',
                         'icon' => 'el-icon-arrow-right',
-                        'path' => 'sm/warning-parts',
+                        'path' => '/sm/warning-parts',
                     ],
                     [
                         'label' => 'Master Data',
                         'icon' => 'el-icon-coin',
-                        'path' => 'sm/master-data',
+                        'path' => '/sm/master-data',
                         'children' => [
                             [
                                 'label' => 'Fuel Tanks',
                                 'icon' => 'el-icon-arrow-right',
-                                'path' => 'sm/fuel-tanks',
+                                'path' => '/sm/fuel-tanks',
                             ],
                             [
                                 'label' => 'Fuel Tanks Tera Table',
                                 'icon' => 'el-icon-arrow-right',
-                                'path' => 'sm/fuel-tanks-tera-table',
+                                'path' => '/sm/fuel-tanks-tera-table',
                             ],
                             [
                                 'label' => 'SADP',
                                 'icon' => 'el-icon-arrow-right',
-                                'path' => 'sm/sadp',
+                                'path' => '/sm/sadp',
                             ],
                         ]
                     ],
@@ -150,52 +150,52 @@ class SidebarMenuController extends Controller
                     [
                         'label' => 'Dashboard',
                         'icon' => 'el-icon-arrow-right',
-                        'path' => 'operation/dashboard',
+                        'path' => '/operation/dashboard',
                     ],
                     [
                         'label' => 'Productivity',
                         'icon' => 'el-icon-arrow-right',
-                        'path' => 'operation/productvity',
+                        'path' => '/operation/productvity',
                     ],
                     [
                         'label' => 'Active Barging',
                         'icon' => 'el-icon-arrow-right',
-                        'path' => 'operation/active-barging',
+                        'path' => '/operation/active-barging',
                     ],
                     [
                         'label' => 'Breakdown OCR',
                         'icon' => 'el-icon-arrow-right',
-                        'path' => 'operation/breakdown-ocr',
+                        'path' => '/operation/breakdown-ocr',
                     ],
                     [
                         'label' => 'Stock Dumping Summary',
                         'icon' => 'el-icon-arrow-right',
-                        'path' => 'operation/stock-dumping-summary',
+                        'path' => '/operation/stock-dumping-summary',
                     ],
                     [
                         'label' => 'Stock Dumping',
                         'icon' => 'el-icon-arrow-right',
-                        'path' => 'operation/stock-dumping',
+                        'path' => '/operation/stock-dumping',
                     ],
                     [
                         'label' => 'Port Activity',
                         'icon' => 'el-icon-arrow-right',
-                        'path' => 'operation/port-activity',
+                        'path' => '/operation/port-activity',
                     ],
                     [
                         'label' => 'Barging',
                         'icon' => 'el-icon-arrow-right',
-                        'path' => 'operation/barging',
+                        'path' => '/operation/barging',
                     ],
                     [
                         'label' => 'Dwelling Time',
                         'icon' => 'el-icon-arrow-right',
-                        'path' => 'operation/dwelling-time',
+                        'path' => '/operation/dwelling-time',
                     ],
                     [
                         'label' => 'Stock Balanced',
                         'icon' => 'el-icon-arrow-right',
-                        'path' => 'operation/stock-balanced',
+                        'path' => '/operation/stock-balanced',
                     ],
                     [
                         'label' => 'Master Data',
@@ -205,67 +205,67 @@ class SidebarMenuController extends Controller
                             [
                                 'label' => 'Area',
                                 'icon' => 'el-icon-arrow-right',
-                                'path' => 'operation/master-data/area',
+                                'path' => '/operation/master-data/area',
                             ],
                             [
                                 'label' => 'Barges',
                                 'icon' => 'el-icon-arrow-right',
-                                'path' => 'operation/master-data/barges',
+                                'path' => '/operation/master-data/barges',
                             ],
                             [
                                 'label' => 'Barging Plan',
                                 'icon' => 'el-icon-arrow-right',
-                                'path' => 'operation/master-data/barging-plan',
+                                'path' => '/operation/master-data/barging-plan',
                             ],
                             [
                                 'label' => 'Buyers',
                                 'icon' => 'el-icon-arrow-right',
-                                'path' => 'operation/master-data/buyer',
+                                'path' => '/operation/master-data/buyer',
                             ],
                             [
                                 'label' => 'Contractor',
                                 'icon' => 'el-icon-arrow-right',
-                                'path' => 'operation/master-data/contractor',
+                                'path' => '/operation/master-data/contractor',
                             ],
                             [
                                 'label' => 'Customer',
                                 'icon' => 'el-icon-arrow-right',
-                                'path' => 'operation/master-data/customer',
+                                'path' => '/operation/master-data/customer',
                             ],
                             [
                                 'label' => 'Default Material',
                                 'icon' => 'el-icon-arrow-right',
-                                'path' => 'operation/master-data/default-material',
+                                'path' => '/operation/master-data/default-material',
                             ],
                             [
                                 'label' => 'Jetties',
                                 'icon' => 'el-icon-arrow-right',
-                                'path' => 'operation/master-data/jetty',
+                                'path' => '/operation/master-data/jetty',
                             ],
                             [
                                 'label' => 'Productivity Plan',
                                 'icon' => 'el-icon-arrow-right',
-                                'path' => 'operation/master-data/productivity-plan',
+                                'path' => '/operation/master-data/productivity-plan',
                             ],
                             [
                                 'label' => 'Seam',
                                 'icon' => 'el-icon-arrow-right',
-                                'path' => 'operation/master-data/seam',
+                                'path' => '/operation/master-data/seam',
                             ],
                             [
                                 'label' => 'Subcont',
                                 'icon' => 'el-icon-arrow-right',
-                                'path' => 'operation/master-data/subcont',
+                                'path' => '/operation/master-data/subcont',
                             ],
                             [
                                 'label' => 'Subcont Unit',
                                 'icon' => 'el-icon-arrow-right',
-                                'path' => 'operation/master-data/subcont-unit',
+                                'path' => '/operation/master-data/subcont-unit',
                             ],
                             [
                                 'label' => 'Tugboat',
                                 'icon' => 'el-icon-arrow-right',
-                                'path' => 'operation/master-data/tugboat',
+                                'path' => '/operation/master-data/tugboat',
                             ],
                         ]
                     ],

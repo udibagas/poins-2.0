@@ -1,27 +1,44 @@
 <template>
-	<div>
-		<el-form inline @submit.native.prevent style="text-align: right">
-			<el-form-item>
-				<el-button type="primary" size="mini" icon="el-icon-plus"></el-button>
-			</el-form-item>
-			<el-form-item>
-				<el-input
-					prefix-icon="el-icon-search"
-					v-model="keyword"
-					placeholder="Search"
-					size="small"
-					clearable
-					@change="
-						() => {
-							this.pagination.current_page = 1
-							fetchData()
-						}
-					"
-				></el-input>
-			</el-form-item>
-		</el-form>
+	<el-card>
+		<el-row>
+			<el-col :span="12">
+				<h1 class="text-primary" style="margin-top: 10px">
+					COMPONENT CRITERIA
+				</h1>
+			</el-col>
+
+			<el-col :span="12">
+				<el-form inline @submit.native.prevent style="text-align: right">
+					<el-form-item>
+						<el-button
+							type="primary"
+							size="mini"
+							icon="el-icon-plus"
+							@click="addData"
+						></el-button>
+					</el-form-item>
+					<el-form-item>
+						<el-input
+							prefix-icon="el-icon-search"
+							v-model="keyword"
+							placeholder="Search"
+							size="small"
+							clearable
+							@change="
+								() => {
+									this.pagination.current_page = 1
+									fetchData()
+								}
+							"
+						></el-input>
+					</el-form-item>
+				</el-form>
+			</el-col>
+		</el-row>
+
 		<el-table
 			stripe
+			height="calc(100vh - 240px)"
 			v-loading="loading"
 			:data="tableData"
 			@sort-change="sortChange"
@@ -81,17 +98,35 @@
 
 		<br />
 
-		<el-pagination
-			background
-			layout="total, sizes, prev, pager, next"
-			:current-page="pagination.current_page"
-			@current-change="currentChange"
-			@size-change="sizeChange"
-			:page-size="Number(pagination.per_page)"
-			:page-sizes="[10, 25, 50, 100]"
-			:total="pagination.total"
-		></el-pagination>
-	</div>
+		<el-row>
+			<el-col :span="20">
+				<el-pagination
+					background
+					layout="total, sizes, prev, pager, next"
+					:current-page="pagination.current_page"
+					@current-change="currentChange"
+					@size-change="sizeChange"
+					:page-size="Number(pagination.per_page)"
+					:page-sizes="pageSizes"
+					:total="pagination.total"
+				></el-pagination>
+			</el-col>
+			<el-col :span="4" class="text-right">
+				<small>
+					Showing {{ pagination.from }} - {{ pagination.to }} of
+					{{ pagination.total }}
+				</small>
+			</el-col>
+		</el-row>
+
+		<ComponentCriteriaForm
+			:show="showForm"
+			:model="selectedData"
+			:url="url"
+			@close="showForm = false"
+			@refresh="refresh"
+		/>
+	</el-card>
 </template>
 
 <script>
@@ -103,10 +138,6 @@ export default {
 		return {
 			url: '/api/componentCriteria',
 		}
-	},
-	methods: {},
-	mounted() {
-		this.fetchData()
 	},
 }
 </script>

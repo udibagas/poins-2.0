@@ -25,7 +25,7 @@ class BreakdownStatusRequest extends FormRequest
     {
         return [
             'code' => 'required',
-            'name' => 'required',
+            'description' => 'required',
         ];
     }
 }

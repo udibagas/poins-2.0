@@ -13,7 +13,7 @@ class UnitCategoryRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return auth()->check();
     }
 
     /**
@@ -24,7 +24,8 @@ class UnitCategoryRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'name' => 'required',
+            'description' => 'required'
         ];
     }
 }

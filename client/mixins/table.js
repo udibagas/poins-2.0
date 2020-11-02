@@ -1,7 +1,6 @@
 export default {
   data() {
     return {
-      url: '',
       keyword: '',
       filters: {},
       tableData: [],
@@ -37,8 +36,6 @@ export default {
     },
 
     filterChange(filter) {
-      // let c = Object.keys(f)[0]
-      // this.filters[c] = Object.values(f[c])
       this.filters = {...this.filters, ...filter}
       this.pagination.current_page = 1
       this.fetchData()
@@ -107,7 +104,16 @@ export default {
     editData(data) {
       this.selectedData = JSON.parse(JSON.stringify(data))
       this.showForm = true
+    },
+
+    addData() {
+      this.selectedData = {}
+      this.showForm = true
     }
 
-  }
+  },
+
+  mounted() {
+		this.fetchData()
+	},
 }

@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\LocationRequest;
+use App\Http\Resources\LocationCollection;
 use App\Models\Location;
 use Illuminate\Http\Request;
 
@@ -12,19 +14,16 @@ class LocationController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        //
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
+        return new LocationCollection(
+            Location::when($request->keyword, function ($q) use ($request) {
+                $q->where('name', 'LIKE', "%{$request->keyword}%")
+                    ->orWhere('description', 'LIKE', "%{$request->keyword}%");
+            })
+                ->orderBy($request->sort ?: 'name', $request->order == 'descending' ? 'desc' : 'asc')
+                ->paginate($request->per_page)
+        );
     }
 
     /**
@@ -33,31 +32,10 @@ class LocationController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(LocationRequest $request)
     {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Location  $location
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Location $location)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Location  $location
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Location $location)
-    {
-        //
+        $location = Location::create($request->all());
+        return ['message' => 'Data has been saved', 'data' => $location];
     }
 
     /**
@@ -67,9 +45,10 @@ class LocationController extends Controller
      * @param  \App\Models\Location  $location
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Location $location)
+    public function update(LocationRequest $request, Location $location)
     {
-        //
+        $location->update($request->all());
+        return ['message' => 'Data has been updated', 'data' => $location];
     }
 
     /**
@@ -80,6 +59,7 @@ class LocationController extends Controller
      */
     public function destroy(Location $location)
     {
-        //
+        $location->delete();
+        return ['message' => 'Data has been deleted'];
     }
 }

@@ -78,6 +78,8 @@ export default {
     localStorage: false
   },
 
+  breadcrumbs: [],
+
   // Build Configuration (https://go.nuxtjs.dev/config-build)
   build: {
     transpile: [/^element-ui/],

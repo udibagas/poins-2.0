@@ -2,7 +2,7 @@
 	<el-card>
 		<el-row>
 			<el-col :span="12">
-				<h1 class="text-primary" style="margin-top: 10px">MANAGE USER</h1>
+				<h1 class="text-primary" style="margin-top: 10px">UNIT CATEGORY</h1>
 			</el-col>
 
 			<el-col :span="12">
@@ -12,6 +12,7 @@
 							type="primary"
 							size="mini"
 							icon="el-icon-plus"
+							@click="addData"
 						></el-button>
 					</el-form-item>
 					<el-form-item>
@@ -34,8 +35,8 @@
 		</el-row>
 
 		<el-table
-			height="calc(100vh - 240px)"
 			stripe
+			height="calc(100vh - 240px)"
 			v-loading="loading"
 			:data="tableData"
 			@sort-change="sortChange"
@@ -51,65 +52,11 @@
 			<el-table-column
 				prop="name"
 				label="Name"
-				min-width="200"
 				sortable="custom"
+				width="150"
 			></el-table-column>
 
-			<el-table-column
-				prop="email"
-				label="Email"
-				min-width="220"
-				sortable="custom"
-			></el-table-column>
-
-			<el-table-column
-				prop="customer"
-				label="Customer"
-				min-width="150"
-			></el-table-column>
-
-			<el-table-column
-				prop="contractor"
-				label="Contractor"
-				min-width="150"
-			></el-table-column>
-
-			<el-table-column
-				label="Super Admin"
-				header-align="center"
-				align="center"
-				column-key="super_admin"
-				min-width="150"
-				:filters="yesNoFilter"
-			>
-				<template slot-scope="scope">
-					<i
-						:class="
-							scope.row.super_admin
-								? 'el-icon-check text-success'
-								: 'el-icon-close text-danger'
-						"
-					></i>
-				</template>
-			</el-table-column>
-
-			<el-table-column
-				label="Active"
-				header-align="center"
-				align="center"
-				column-key="active"
-				:filters="yesNoFilter"
-			>
-				<template slot-scope="scope">
-					<i
-						:class="
-							scope.row.active
-								? 'el-icon-check text-success'
-								: 'el-icon-close text-danger'
-						"
-					></i>
-				</template>
-			</el-table-column>
+			<el-table-column prop="description" label="Description"></el-table-column>
 
 			<el-table-column
 				fixed="right"
@@ -169,6 +116,14 @@
 				</small>
 			</el-col>
 		</el-row>
+
+		<UnitCategoryForm
+			:show="showForm"
+			:model="selectedData"
+			:url="url"
+			@close="showForm = false"
+			@refresh="refresh"
+		/>
 	</el-card>
 </template>
 
@@ -179,12 +134,8 @@ export default {
 	mixins: [table],
 	data() {
 		return {
-			url: '/api/user',
+			url: '/api/unitCategory',
 		}
-	},
-	methods: {},
-	mounted() {
-		this.fetchData()
 	},
 }
 </script>

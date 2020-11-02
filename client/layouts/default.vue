@@ -16,6 +16,7 @@
 						style="cursor: pointer"
 					></i>
 				</div>
+
 				<el-breadcrumb
 					separator-class="el-icon-arrow-right"
 					style="line-height: 60px; flex-grow: 1"
@@ -23,9 +24,11 @@
 					<el-breadcrumb-item :to="{ path: '/' }">
 						<i class="el-icon-s-home"></i> Home
 					</el-breadcrumb-item>
-					<el-breadcrumb-item>Administration</el-breadcrumb-item>
-					<el-breadcrumb-item>User</el-breadcrumb-item>
+					<el-breadcrumb-item v-for="b in breadcrumbs" :key="b">
+						{{ b }}
+					</el-breadcrumb-item>
 				</el-breadcrumb>
+
 				<div class="text-right">
 					<el-dropdown>
 						<span class="el-dropdown-link">
@@ -74,6 +77,7 @@ export default {
 	data: () => {
 		return {
 			collapse: false,
+			breadcrumbs: [],
 		}
 	},
 	methods: {
