@@ -53,7 +53,7 @@
 				prop="name"
 				label="Name"
 				sortable="custom"
-				width="150"
+				min-width="150"
 			></el-table-column>
 
 			<el-table-column prop="description" label="Description"></el-table-column>

@@ -33,6 +33,27 @@
 					{{ errors.description.join(', ') }}
 				</div>
 			</el-form-item>
+
+			<!-- <el-form-item label="Location">
+				<el-select
+					size="small"
+					style="width: 100%"
+					v-model="formModel.location_id"
+					placeholder="Location"
+					filterable
+					default-first-option
+					remote
+					clearable
+					:remote-method="(q) => getList('/api/location', q, 'locationList')"
+				>
+					<el-option
+						v-for="location in locationList"
+						:key="location.id"
+						:value="location.id"
+						:label="location.name"
+					></el-option>
+				</el-select>
+			</el-form-item> -->
 		</el-form>
 
 		<div slot="footer">
@@ -44,7 +65,7 @@
 				size="small"
 				type="primary"
 				icon="el-icon-success"
-				@click="formModel.id ? update() : store()"
+				@click="submit(formModel.id)"
 				:loading="loading"
 			>
 				{{ formModel.id ? 'UPDATE' : 'SAVE' }}
@@ -55,14 +76,18 @@
 
 <script>
 import form from '~/mixins/form'
+import dropdown from '~/mixins/dropdown'
 
 export default {
 	props: ['show', 'model', 'url'],
-	mixins: [form],
+	mixins: [form, dropdown],
 	computed: {
 		formModel() {
 			return this.model
 		},
 	},
+	// mounted() {
+	// 	this.getList('/api/location', '', 'locationList')
+	// },
 }
 </script>
